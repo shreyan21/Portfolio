@@ -1,0 +1,138 @@
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5); /* Fully transparent background */
+    backdrop-filter: blur(5px); /* Optional: Add blur effect behind the navbar */
+}
+
+.navbar-toggler {
+    margin-right: 0; /* Align toggle button to the right */
+}
+
+.navbar-collapse {
+    justify-content: center; /* Center links */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff; /* Slightly transparent white color */
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transition for hover effects */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Shadow for better readability on light backgrounds */
+
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffd700; /* Highlight color on hover */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
+
+}
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+/* Hero Section Styling */
+.hero {
+    position: relative;
+    background: url('/backgroundhero.jpg') no-repeat center center; /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the entire section */
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/backgroundhero.jpg') no-repeat center center; /* Same image as the background */
+    background-size: cover;
+    filter: blur(5px); /* Apply blur effect only to the background image */
+    -webkit-filter: blur(5px); /* For WebKit browsers */
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Ensures content is above the blurred image */
+    color: #fff; /* Text color */
+}
+
+.hero h1, .hero p {
+    margin: 0;
+    opacity: 0; /* Initially hidden for animation */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    transform: translateY(-50px); /* Initial position for animation */
+}
+
+.hero p {
+    font-size: 1.5rem;
+    transform: translateY(50px); /* Initial position for animation */
+}
+
+/* Section Styles for Fade-in Animation */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button Styling */
+.btn-light {
+    background-color: #f8f9fa;
+    color: #212529;
+    border: 1px solid #ced4da;
+    transition: background-color 0.3s ease;
+}
+
+.btn-light:hover {
+    background-color: #e2e6ea;
+}
+
+.btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
